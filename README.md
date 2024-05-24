@@ -4,7 +4,7 @@ Este gihub tiene la función de administrar el trabajo de los empleados y la pro
 
 ### Problema
 
-Una empresa necesita administrar bien sus recursos, esto se logra a traves de tener clara la función de cada empleado, que este realice su respectivo trabajo y a su vez, el echo de que crear sus productos, que, aunque otras empresas los puedan hacer, por lo que pueden existir sin la empresa, este programa facilita el administrar la cantidad de producción de cada producto, aparte de tener claro los datos de cada empleado y los datos de cada producto.
+Una empresa necesita administrar bien sus recursos, esto se logra a traves de tener clara la función de cada empleado, que este realice su respectivo trabajo y a su vez, el hecho de que crear sus productos, que, aunque otras empresas los puedan hacer, por lo que pueden existir sin la empresa, este programa facilita el administrar la cantidad de producción de cada producto, aparte de tener claro los datos de cada empleado y los datos de cada producto.
 
 ### Funcionamiento
 
@@ -16,6 +16,8 @@ Una empresa necesita administrar bien sus recursos, esto se logra a traves de te
 
 ### Considereaciones
 
-Este codigo no funciona sin haber generado la empresa inicial, pues a la hora de correr el codigo se te preguntara el nombre de esta, ademas de la opción de agregar empleados, en el caso que no la crees, tampoco se podran generar los empleados, aunque los productos aun van a estar, pues existiran pero no seran producidos sin la empresa.
+Este código no funcionaría sin haber generado la empresa inicial, pues a la hora de correr el código se te preguntará el nombre de esta. Además, tendrás la opción de agregar empleados, pero si no creas la empresa inicial, tampoco se podrán generar los empleados. Los productos aún estarán presentes en el sistema, ya que existirán en la base de datos, pero no serán producidos sin la empresa establecida.
 
-A su vez, el codigo debe de compilarse con C++.
+En términos prácticos, si intentaras crear una "empresa doble" o múltiples empresas sin establecer una como la principal, el programa no tendría una empresa base para registrar empleados o producir productos. Esto podría causar errores durante la ejecución o incluso hacer que el programa no compile correctamente si se esperan objetos de empresa que no han sido inicializados.
+
+Es importante asegurarse de establecer correctamente la empresa principal antes de intentar agregar empleados o producir productos para evitar problemas de este tipo. Además, el código debe compilarse con C++ para garantizar su correcto funcionamiento y compatibilidad con el entorno de desarrollo.
