@@ -1,3 +1,10 @@
+/*El codigo es un programa que interactua con una empresa ficticia. Solicita
+  el nombre de la empresa, crea una instancia de Empresa con capacidad para 100 
+  empleados, y muestra un menu para registrar empleados, ver empleados, ver 
+  productos o salir del programa. Cada opcion ejecuta acciones especificas como 
+  agregar empleados, mostrar informacion y gestionar productos, todo dentro de un 
+  bucle de opciones hasta que se elige salir.*/
+
 #include<iostream>
 #include<string>
 
@@ -40,10 +47,11 @@ int main() {
             Fisico productoExistente("Celular", 75, "Dispositivo de facil uso y portatil", "Metal");
             cout << "Informacion del Producto Existente:" << endl;
             productoExistente.mostrarProducto();
+            miEmpresa.agregarProducto(productoExistente); // Agregar el producto a la empresa
         } else if (opcion == 4) {
             cout << "Saliendo del programa." << endl;
         } else {
-            cout << "Opcion no válida. Por favor, intente de nuevo." << endl;
+            cout << "Opcion no valida. Por favor, intente de nuevo." << endl;
         }
     } while (opcion != 4);
 
