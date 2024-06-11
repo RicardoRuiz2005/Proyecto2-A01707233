@@ -49,9 +49,7 @@ public:
         cout << "El producto " << nombreProducto << " es: " << descripcion << endl;
         cout << "Este producto tiene un costo de: " << costoProduccion << "$" << endl;
     }
-    virtual void producirProducto(int cant) {
-        cout << "Se producen " << cant << " del producto" << endl;
-    }
+    virtual void producirProducto(int cant) = 0;
 };
 
 class Fisico : public Producto {
