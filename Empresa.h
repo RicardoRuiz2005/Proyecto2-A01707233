@@ -1,66 +1,87 @@
-/*El codigo define una clase Empresa que usa vectores para manejar empleados 
-  y productos. Utiliza push_back para agregar elementos y size() para obtener el tamanio 
-  del vector. Ofrece metodos para agregar y mostrar empleados y productos, incluyendo 
-  informacion sobre la empresa.*/
+/*El codigo define la clase Empresa, que maneja empleados y productos con arreglos de tamano
+ fijo (100 cada uno) y sus respectivos contadores. Permite agregar empleados y productos hasta 
+ alcanzar el limite, mostrar empleados y productos, producir productos por indice y cantidad, y 
+ hacer que empleados trabajen por nombre. Muestra mensajes de error si se exceden los limites o 
+ si se ingresan indices invalidos.*/
 
 #include "Empleado.h"
 #include "Producto.h"
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
 class Empresa {
 private:
-    int cantEmpleados;
     string nombreEmpresa;
-    vector<Empleado> empleados; // Utilizo un vector para manejar los empleados
-    vector<Producto> productos; // Tambien utilizo otro vector para manejar los productos
-	
-	/* En el caso de los vectores solicite ayuda externa de programadores y de sitios de internet para 
-	   comprender mejor los vectores y asi usarlos, puesto que me fue recomendado usarlos por el becario,
-	   el apoyo externo esta comentado para asi demostrar la comprensión de los vectores y de su uso. */
-	
-public:
-    Empresa(int cant, string nombre) : cantEmpleados(cant), nombreEmpresa(nombre) {}
+    Empleado* empleados[100]; // Arreglo para manejar los empleados, tamano fijo de 100
+    Producto* productos[100]; // Arreglo para manejar los productos con un tamano fijo de 100
+    int numEmpleados; // Contador de empleados actuales para no superar el limite
+    int numProductos; // Contador de productos actuales para no superar el limite de productos
 
-    void agregarEmpleado(Empleado empleado) {
-        if (empleados.size() < static_cast<size_t>(cantEmpleados)) {
-        	/* Uso el [static_cast<size_t>(cantEmpleados)] para asegura que ambos valores se comparen 
-		       correctamente y se eviten posibles errores de comparacion de tipos de datos debido a que son vectores*/
-            empleados.push_back(empleado);
+public:
+    Empresa(string nombre) : nombreEmpresa(nombre), numEmpleados(0), numProductos(0) {}
+
+    void agregarEmpleado(Empleado* empleado) {
+        if (numEmpleados < 100) {
+            empleados[numEmpleados] = empleado;
+            numEmpleados++;
         } else {
             cout << "No se pueden agregar mas empleados. Limite alcanzado." << endl;
         }
     }
 
-    void agregarProducto(Producto producto) {
-        productos.push_back(producto); // Uso el .push_back para agregar un elemento al final del vector
+    void agregarProducto(Producto* producto) {
+        if (numProductos < 100) {
+            productos[numProductos] = producto;
+            numProductos++;
+        } else {
+            cout << "No se pueden agregar mas productos. Limite alcanzado." << endl;
+        }
     }
 
     void mostrarEmpleados() {
         cout << "Empleados de " << nombreEmpresa << ":" << endl;
-        for (size_t i = 0; i < empleados.size(); i++) {
-        	// Use el size_t para obtener valores de tamaño relacionados con la memoria
-            empleados[i].mostrarDatos();
+        for (int i = 0; i < numEmpleados; i++) {
+            empleados[i]->mostrarDatos();
         }
     }
 
     void mostrarProductos() {
         cout << "Productos de " << nombreEmpresa << ":" << endl;
-        for (size_t i = 0; i < productos.size(); i++) {
-        	// Uso el .size() para obtener el número de elementos que contiene ese vector
-            productos[i].mostrarProducto();
+        for (int i = 0; i < numProductos; i++) {
+            productos[i]->mostrarProducto();
         }
     }
 
     void mostrarInfoEmpresa() {
         cout << "Nombre de la empresa: " << nombreEmpresa << endl;
-        cout << "Cantidad de empleados: " << empleados.size() << endl;
+        cout << "Cantidad de empleados: " << numEmpleados << endl;
         mostrarEmpleados();
-        cout << "Cantidad de productos: " << productos.size() << endl;
+        cout << "Cantidad de productos: " << numProductos << endl;
         mostrarProductos();
+    }
+
+    void producirProducto(int indice, int cantidad, string extra) {
+        if (indice >= 1 && indice <= numProductos) {
+            productos[indice - 1]->producirProducto(cantidad); // Sirve para ajustar el indice de los productos
+        } else {
+            cout << "Indice de producto no valido." << endl;
+        }
+    }
+
+    void trabajarEmpleadoPorNombre(string nombre) {
+        bool encontrado = false;
+        for (int i = 0; i < numEmpleados; i++) {
+            if (empleados[i]->getNombreEmpleado() == nombre) {
+                empleados[i]->trabajar();
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            cout << "Empleado con el nombre " << nombre << " no encontrado." << endl;
+        }
     }
 };
