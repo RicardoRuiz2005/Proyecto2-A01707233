@@ -71,7 +71,7 @@ public:
 
     void trabajar() {
         cout << "Este empleado esta dirigiendo" << endl;
-        cout << "El trabajador: " << nombreEmpleado << " de matricula: " << matricula << " esta trabajando en la produccion" << endl;
+        cout << "El director: " << nombreEmpleado << " de matricula: " << matricula << " esta trabajando en la produccion" << endl;
     }
 };
 
