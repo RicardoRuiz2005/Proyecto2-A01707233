@@ -58,7 +58,8 @@ public:
 
     void trabajar() {
         cout << "Este empleado esta trabajando" << endl;
-        cout << "El operador: " << nombreEmpleado << " de matricula: " << matricula << " esta trabajando en la produccion" << endl;
+        cout << "El operador: " << nombreEmpleado << " de matricula: " << matricula 
+		<< " esta trabajando en la produccion" << endl;
     }
 };
 
@@ -69,7 +70,8 @@ public:
 
     void trabajar() {
         cout << "Este empleado esta dirigiendo" << endl;
-        cout << "El director: " << nombreEmpleado << " de matricula: " << matricula << " esta trabajando en la produccion" << endl;
+        cout << "El director: " << nombreEmpleado << " de matricula: " << matricula 
+		<< " esta trabajando en la produccion" << endl;
     }
 };
 
@@ -80,7 +82,8 @@ public:
 
     void trabajar() {
         cout << "Este es el jefe" << endl;
-        cout << "El jefe tiene como nombre: " << nombreEmpleado << " con matricula: " << matricula << " esta dirigiendo la empresa" << endl;
+        cout << "El jefe tiene como nombre: " << nombreEmpleado << " con matricula: " 
+		<< matricula << " esta dirigiendo la empresa" << endl;
     }
 };
 
