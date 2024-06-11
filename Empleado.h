@@ -48,9 +48,7 @@ public:
         cout << "Su puesto en la empresa es: " << puesto << endl;
     }
 
-    virtual void trabajar() {
-        cout << "Este empleado esta trabajando" << endl;
-    }
+    virtual void trabajar() = 0;
 };
 
 class Operador : public Empleado {
